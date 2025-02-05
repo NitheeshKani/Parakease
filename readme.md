@@ -37,5 +37,10 @@ After cloning the project, follow these steps to set it up:
 3. Run `npm install` in the `dist` folder to install the dependencies.
 4. Run `node dist/index.js` to start the server.
 
+## Useful Tutorials
+
+1. Setup   : https://www.youtube.com/watch?v=L0y6HivSk5c&list=PL2T7gva8ajyiycYSdy8_RrTB1U69iqUfH
+2. Drizzle : https://www.youtube.com/watch?v=7-NZ0MlPpJA
+3. Express : https://www.youtube.com/watch?v=SccSCuHhOw0
 
 Note: The project uses SQLite as its database, so you don't need to set up a separate database server.
