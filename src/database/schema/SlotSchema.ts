@@ -7,5 +7,5 @@ export const SlotSchema = sqliteTable('Slot', {
     isBooked: integer("isBooked", { mode: "boolean" }).notNull(),
     floorNum: integer("floorNum").notNull(),
 
-    parkingLotId: integer("parkingLotId").references(() => ParkingLotSchema.id).notNull()
+    parkingLotId: integer("parkingLotId").references(() => ParkingLotSchema.id, { onDelete: "cascade" }).notNull()
 })

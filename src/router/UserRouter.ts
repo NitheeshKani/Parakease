@@ -4,7 +4,7 @@ import { UserSchema } from "../database/schema/UserSchema"
 
 const UserRouter = Router()
 
-UserRouter.get('/', async (req, res) => {
+UserRouter.get('/:id', async (req, res) => {
     try {
         const user = await db.query.UserSchema.findMany({
             columns: {
