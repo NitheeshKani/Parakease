@@ -9,6 +9,10 @@ UserRouter.get('/', async (req, res) => {
         const user = await db.query.UserSchema.findMany({
             columns: {
                 password: false
+            },
+            with: {
+                vehicles: true,
+                parkingLots: true
             }
         })
 

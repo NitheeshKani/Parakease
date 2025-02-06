@@ -3,7 +3,7 @@ import { VehicleSchema } from "./VehicleSchema"
 import { UserSchema } from "./UserSchema"
 import { ParkingLotSchema } from "./ParkingLotSchema"
 
-export const BilSchema = sqliteTable('Bill', {
+export const BillSchema = sqliteTable('Bill', {
     id: integer("id").primaryKey(),
     duration: integer("duration").notNull(),
     amount: integer("amount").notNull(),

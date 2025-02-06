@@ -7,7 +7,12 @@ const SlotRouter = Router()
 
 SlotRouter.get("/", async (req, res) => {
     try {
-        const slot = await db.query.SlotSchema.findMany()
+        const slot = await db.query.SlotSchema.findMany({
+            with:{
+                prakingLot: true,
+                bill: true
+            }
+        })
         res.status(200).json(slot)
     } catch (error) {
         res.json(error)

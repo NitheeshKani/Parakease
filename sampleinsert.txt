@@ -1,0 +1,47 @@
+db.insert(user).values([
+    { id: 1, userName: "John Doe", email: "john@example.com", phoneNumber: "1234567890", password: "password123", role: "Admin" },
+    { id: 2, userName: "Jane Smith", email: "jane@example.com", phoneNumber: "0987654321", password: "password456", role: "User" },
+    { id: 3, userName: "Alice Johnson", email: "alice@example.com", phoneNumber: "1122334455", password: "password789", role: "User" },
+    { id: 4, userName: "Bob Brown", email: "bob@example.com", phoneNumber: "2233445566", password: "password321", role: "User" },
+    { id: 5, userName: "Charlie Davis", email: "charlie@example.com", phoneNumber: "3344556677", password: "password654", role: "Admin" }
+]);
+
+db.insert(parkingLot).values([
+    { id: 1, name: "Lot A", address: "123 Main St", city: "New York", parkingLotType: "Indoor", floors: 3, isValet: 1, userId: 1 },
+    { id: 2, name: "Lot B", address: "456 Elm St", city: "Los Angeles", parkingLotType: "Outdoor", floors: 1, isValet: 0, userId: 2 },
+    { id: 3, name: "Lot C", address: "789 Oak St", city: "Chicago", parkingLotType: "Multi-level", floors: 5, isValet: 1, userId: 3 },
+    { id: 4, name: "Lot D", address: "321 Pine St", city: "Houston", parkingLotType: "Underground", floors: 2, isValet: 1, userId: 4 },
+    { id: 5, name: "Lot E", address: "654 Maple St", city: "San Francisco", parkingLotType: "Garage", floors: 4, isValet: 0, userId: 5 }
+]);
+
+db.insert(slot).values([
+    { id: 1, slotName: "A1", isBooked: 1, floorNum: 1, parkingLotId: 1 },
+    { id: 2, slotName: "B1", isBooked: 0, floorNum: 1, parkingLotId: 2 },
+    { id: 3, slotName: "C1", isBooked: 1, floorNum: 2, parkingLotId: 3 },
+    { id: 4, slotName: "D1", isBooked: 0, floorNum: 1, parkingLotId: 4 },
+    { id: 5, slotName: "E1", isBooked: 1, floorNum: 3, parkingLotId: 5 }
+]);
+
+db.insert(vehicle).values([
+    { id: 1, vehicleName: "Toyota Camry", vehicleType: "Sedan", colour: "Blue", numberPlate: "ABC123", userId: 1 },
+    { id: 2, vehicleName: "Honda Civic", vehicleType: "Sedan", colour: "Red", numberPlate: "XYZ789", userId: 2 },
+    { id: 3, vehicleName: "Ford Mustang", vehicleType: "Coupe", colour: "Black", numberPlate: "LMN456", userId: 3 },
+    { id: 4, vehicleName: "Chevrolet Tahoe", vehicleType: "SUV", colour: "White", numberPlate: "PQR678", userId: 4 },
+    { id: 5, vehicleName: "Tesla Model S", vehicleType: "Electric", colour: "Silver", numberPlate: "DEF321", userId: 5 }
+]);
+db.insert(bill).values([
+    { id: 1, duration: 2, amount: 20, vehicleId: 1, userId: 1, parkingLotId: 1, slotId: 1 },
+    { id: 2, duration: 3, amount: 30, vehicleId: 2, userId: 2, parkingLotId: 2, slotId: 2 },
+    { id: 3, duration: 1, amount: 10, vehicleId: 3, userId: 3, parkingLotId: 3, slotId: 3 },
+    { id: 4, duration: 4, amount: 40, vehicleId: 4, userId: 4, parkingLotId: 4, slotId: 4 },
+    { id: 5, duration: 5, amount: 50, vehicleId: 5, userId: 5, parkingLotId: 5, slotId: 5 }
+]);
+
+db.insert(payment).values([
+    { id: 1, amount: 20, paymentType: "Credit Card", billId: 1 },
+    { id: 2, amount: 30, paymentType: "Cash", billId: 2 },
+    { id: 3, amount: 10, paymentType: "Debit Card", billId: 3 },
+    { id: 4, amount: 40, paymentType: "Mobile Payment", billId: 4 },
+    { id: 5, amount: 50, paymentType: "Credit Card", billId: 5 }
+]);
+
