@@ -10,5 +10,5 @@ export const ParkingLotSchema = sqliteTable('ParkingLot', {
     floors: integer("floors").notNull(),
     isValet: integer("isValet", { mode: "boolean" }).notNull(),
 
-    UserId: integer("UserId").references(() => UserSchema.id, { onDelete: "cascade" }).notNull()
+    userId: integer("UserId").references(() => UserSchema.id, { onDelete: "cascade" }).notNull()
 })

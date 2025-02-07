@@ -9,6 +9,7 @@ import { BillSchema } from "./schema/BillSchema"
 import { PaymentSchema } from "./schema/PaymentSchema"
 
 const sqlite = new Database('Database.db')
+sqlite.pragma('foreign_keys = ON')
 const db = drizzle(sqlite, { schema: { UserSchema, SlotSchema, VehicleSchema, ParkingLotSchema, BillSchema, PaymentSchema, SlotRealtions, ParkingLotRealtions, VehicleRealtions, BillRealtions, PaymentRealtions, UserRealtions }, logger: true })
 
 export default db

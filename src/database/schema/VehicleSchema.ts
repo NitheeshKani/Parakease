@@ -8,5 +8,5 @@ export const VehicleSchema = sqliteTable('Vehicle', {
     colour: text("colour").notNull(),
     numberPlate: text("numberPlate").notNull(),
 
-    UserId: integer("UserId").references(() => UserSchema.id , { onDelete: "cascade" }).notNull()
+    userId: integer("UserId").references(() => UserSchema.id , { onDelete: "cascade" }).notNull()
 })

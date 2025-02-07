@@ -2,12 +2,14 @@ import { Router } from "express"
 import db from "../database/db"
 import { UserSchema } from "../database/schema/UserSchema"
 import { eq } from "drizzle-orm"
+import { VehicleSchema } from "../database/schema/VehicleSchema"
+import { ParkingLotSchema } from "../database/schema/ParkingLotSchema"
 
 const UserRouter = Router()
 
-UserRouter.get('/:id', async (req, res) => {
+UserRouter.get('/', async (req, res) => {
     try {
-        const userId = Number(req.params.id)
+        const userId = Number(req.headers["user-id"])
         const user = await db.query.UserSchema.findFirst({
             where: (UserSchema, { eq }) => eq(UserSchema.id, userId),
             columns: {
@@ -43,9 +45,9 @@ UserRouter.post('/', async (req, res) => {
     }
 })
 
-UserRouter.put('/:id', async (req, res) => {
+UserRouter.put('/', async (req, res) => {
     try {
-        const userId = Number(req.params.id)
+        const userId = Number(req.headers["user-id"])
         const body = req.body
 
         const user = await db.update(UserSchema).set(body).where(eq(UserSchema.id, userId)).returning()
@@ -56,11 +58,13 @@ UserRouter.put('/:id', async (req, res) => {
     }
 })
 
-UserRouter.delete('/:id', async (req, res) => {
+UserRouter.delete('/', async (req, res) => {
     try {
-        const userId = Number(req.params.id)
-        const user = await db.delete(UserSchema).where(eq(UserSchema.id, userId)).returning()
-        res.status(200).json({ message: "user successfully deleted", user })
+        const userId = Number(req.headers["user-id"])
+
+        const deleteduser = await db.delete(UserSchema).where(eq(UserSchema.id, userId)).returning()
+        res.status(200).json({ message: "user successfully deleted", deleteduser })
+
     } catch (error) {
         res.status(400).json(error)
     }

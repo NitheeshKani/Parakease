@@ -18,8 +18,8 @@ export const UserRealtions = relations(UserSchema, ({ one, many }) => {
 export const ParkingLotRealtions = relations(ParkingLotSchema, ({ one, many }) => {
     return {
         slots: many(SlotSchema),
-        User: one(UserSchema, {
-            fields: [ParkingLotSchema.UserId],
+        user: one(UserSchema, {
+            fields: [ParkingLotSchema.userId],
             references: [UserSchema.id]
         }),
         bill: one(BillSchema)
@@ -29,7 +29,7 @@ export const ParkingLotRealtions = relations(ParkingLotSchema, ({ one, many }) =
 export const VehicleRealtions = relations(VehicleSchema, ({ one, many }) => {
     return {
         User: one(UserSchema, {
-            fields: [VehicleSchema.UserId],
+            fields: [VehicleSchema.userId],
             references: [UserSchema.id]
         }),
         bill: one(BillSchema)
@@ -57,7 +57,7 @@ export const BillRealtions = relations(BillSchema, ({ one, many }) => {
             references: [VehicleSchema.id]
         }),
         parkingLot: one(ParkingLotSchema, {
-            fields: [BillSchema.ParkingLotId],
+            fields: [BillSchema.parkingLotId],
             references: [ParkingLotSchema.id]
         }),
         slot: one(SlotSchema, {
