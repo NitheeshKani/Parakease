@@ -2,8 +2,6 @@ import { Router } from "express"
 import db from "../database/db"
 import { UserSchema } from "../database/schema/UserSchema"
 import { eq } from "drizzle-orm"
-import { VehicleSchema } from "../database/schema/VehicleSchema"
-import { ParkingLotSchema } from "../database/schema/ParkingLotSchema"
 
 const UserRouter = Router()
 

@@ -11,7 +11,7 @@ export const UserRealtions = relations(UserSchema, ({ one, many }) => {
     return {
         vehicles: many(VehicleSchema),
         parkingLots: many(ParkingLotSchema),
-        bill: one(BillSchema)
+        bill: many(BillSchema)
     }
 })
 
