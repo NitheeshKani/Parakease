@@ -7,6 +7,7 @@ export const ParkingLotSchema = sqliteTable('ParkingLot', {
     address: text("address").notNull(),
     city: text("city").notNull(),
     parkingLotType: text("parkingLotType").notNull().$type<'public' | 'private'>(),
+    price: integer("price").notNull(),
     floors: integer("floors").notNull(),
     isValet: integer("isValet", { mode: "boolean" }).notNull(),
 

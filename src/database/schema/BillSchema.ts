@@ -6,6 +6,9 @@ import { ParkingLotSchema } from "./ParkingLotSchema"
 export const BillSchema = sqliteTable('Bill', {
     id: integer("id").primaryKey(),
     duration: integer("duration").notNull(),
+    date: text("date").notNull(),
+    time: text("time").notNull(),
+    bookingTime: text("bookingTime").notNull(),
     amount: integer("amount").notNull(),
 
     vehicleId: integer("vehicleId").references(() => VehicleSchema.id, { onDelete: "cascade" }).notNull(),

@@ -48,7 +48,7 @@ export const SlotRealtions = relations(SlotSchema, ({ one, many }) => {
 
 export const BillRealtions = relations(BillSchema, ({ one, many }) => {
     return {
-        User: one(UserSchema, {
+        user: one(UserSchema, {
             fields: [BillSchema.userId],
             references: [UserSchema.id]
         }),
