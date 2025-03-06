@@ -6,6 +6,7 @@ import SlotRouter from "./src/router/SlotRouter"
 import ParkingLotRouter from "./src/router/ParkingLotRouter"
 import VehicleRouter from "./src/router/VehicleRouter"
 import PaymentRouter from "./src/router/PaymentRouter"
+import BillRouter from "./src/router/BillRouter"
 
 const app = express()
 app.use(cors())
@@ -15,6 +16,7 @@ app.use('/api/user', UserRouter)
 app.use('/api/slot', SlotRouter)
 app.use('/api/parking_lot', ParkingLotRouter)
 app.use('/api/vehicle', VehicleRouter)
+app.use('/api/bill', BillRouter)
 app.use('/api/payment', PaymentRouter)
 
 app.listen(8080, () => {

@@ -48,6 +48,26 @@ ParkingLotRouter.get("/city/:name", async (req, res) => {
     }
 })
 
+ParkingLotRouter.get("/", async (req, res) => {
+    try {
+        const userId = Number(req.headers["user-id"])
+        const parkingLots = await db.query.ParkingLotSchema.findMany({
+            where: (ParkingLotSchema, { eq }) => eq(ParkingLotSchema.userId, userId),
+            with: {
+                slots: true
+            }
+        })
+
+        if (parkingLots.length === 0) {
+            res.status(200).json({ message: "Parking lot not found" })
+        } else {
+            res.status(200).json(parkingLots)
+        }
+    } catch (error) {
+        res.status(400).json(error)
+    }
+})
+
 ParkingLotRouter.post("/", async (req, res) => {
     try {
         const body = req.body

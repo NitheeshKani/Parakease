@@ -7,17 +7,9 @@ const UserRouter = Router()
 
 UserRouter.get('/', async (req, res) => {
     try {
-        const userId = Number(req.headers["user-id"])
+        const userEmail = String(req.headers["user-email"])
         const user = await db.query.UserSchema.findFirst({
-            where: (UserSchema, { eq }) => eq(UserSchema.id, userId),
-            columns: {
-
-                password: false
-            },
-            with: {
-                vehicles: true,
-                parkingLots: true
-            }
+            where: (UserSchema, { eq }) => eq(UserSchema.email, userEmail),
         })
 
         if (!user) {
@@ -30,6 +22,8 @@ UserRouter.get('/', async (req, res) => {
         res.status(400).json(error)
     }
 })
+
+
 
 UserRouter.post('/', async (req, res) => {
     try {

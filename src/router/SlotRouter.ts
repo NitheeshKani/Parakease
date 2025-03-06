@@ -54,7 +54,7 @@ SlotRouter.post("/:lotId", async (req, res) => {
 })
 
 // To Book a slot
-SlotRouter.put("/:id/book", async (req, res) => {
+SlotRouter.put("/book/:id", async (req, res) => {
     try {
         const slotId = Number(req.params.id)
         const isBooked = true
@@ -70,7 +70,7 @@ SlotRouter.put("/:id/book", async (req, res) => {
 })
 
 // To check out a slot
-SlotRouter.put("/:id/checkout", async (req, res) => {
+SlotRouter.put("/checkout/:id", async (req, res) => {
     try {
         const slotId = Number(req.params.id)
         const isBooked = false

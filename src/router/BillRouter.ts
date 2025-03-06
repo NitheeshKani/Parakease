@@ -12,9 +12,9 @@ const currentTimeWithDate = () => {
     return `${day} ${time}`
 }
 
-BillRouter.get("/:userId", async (req, res) => {
+BillRouter.get("/", async (req, res) => {
     try {
-        const userId = Number(req.params.userId)
+        const userId = Number(req.headers["user-id"])
         const bill = await db.query.BillSchema.findMany({
             where: (BillSchema, { eq }) => eq(BillSchema.userId, userId),
             columns: {
@@ -138,7 +138,7 @@ BillRouter.delete("/:id", async (req, res) => {
         const id = Number(req.params.id)
 
         if (userId !== 98421) {
-            res.status(403).json({ message: "Unauthorized" })
+            res.status(403).json({ message: "Unauthorized use the specific master user ID" })
         } else {
             const deletedBill = await db.delete(BillSchema).where(eq(BillSchema.id, id)).returning()
             res.status(200).json(deletedBill)
