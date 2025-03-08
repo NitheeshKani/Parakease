@@ -148,6 +148,16 @@ BillRouter.delete("/:id", async (req, res) => {
     }
 })
 
+BillRouter.delete("/", async (req, res) => {
+    try {
+        const userId = Number(req.headers["user-id"])
 
+        const deletedBill = await db.delete(BillSchema).where(eq(BillSchema.userId, userId)).returning()
+        res.status(200).json(deletedBill)
+
+    } catch (error) {
+        res.status(400).json(error)
+    }
+})
 
 export default BillRouter

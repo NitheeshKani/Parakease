@@ -5,14 +5,11 @@ import { eq } from "drizzle-orm"
 
 const ParkingLotRouter = Router()
 
-ParkingLotRouter.get("/:id", async (req, res) => {
+ParkingLotRouter.get("/city", async (req, res) => {
     try {
-        const parkingLotId = Number(req.params.id)
         const parkingLots = await db.query.ParkingLotSchema.findMany({
-            where: (ParkingLotSchema, { eq }) => eq(ParkingLotSchema.id, parkingLotId),
-            with: {
-                user: true,
-                slots: true
+            columns: {
+                city: true
             }
         })
         if (parkingLots.length === 0) {

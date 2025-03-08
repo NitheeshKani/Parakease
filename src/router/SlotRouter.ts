@@ -85,6 +85,19 @@ SlotRouter.put("/checkout/:id", async (req, res) => {
 
 })
 
+SlotRouter.put("/checkout", async (req, res) => {
+    try {
+        const isBooked = false
+
+        const slot = await db.update(SlotSchema).set({ isBooked }).returning()
+
+        res.status(200).json(slot)
+    } catch (error) {
+        res.status(400).json(error)
+    }
+
+
+})
 SlotRouter.delete("/:id", async (req, res) => {
     try {
         const slotId = Number(req.params.id)
