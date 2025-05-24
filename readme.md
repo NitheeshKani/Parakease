@@ -1,7 +1,3 @@
-Got it! Here's a **short, clean, and professional project description** for your GitHub `README.md`, suitable for a portfolio or hackathon-style overview.
-
----
-
 # 🚗 ParkEase – Smart Parking, Decentralized
 
 **Turn any empty space into a parking spot.**
