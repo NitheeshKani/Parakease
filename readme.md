@@ -1,7 +1,36 @@
-# Project: Express SQLite Server
+Got it! Here's a **short, clean, and professional project description** for your GitHub `README.md`, suitable for a portfolio or hackathon-style overview.
 
-This project is a simple server application built using Express.js and SQLite. It provides a RESTful API for managing user data, using Drizzle ORM for database interactions. The server is set up to handle both development and production environments, with an emphasis on ease of setup and use.
+---
 
+# 🚗 ParkEase – Smart Parking, Decentralized
+
+**Turn any empty space into a parking spot.**
+
+**ParkEase** is a fullstack app where anyone can list unused space as a parking spot, and drivers can search and book nearby spaces in real time. It’s my **first fullstack project**, built with:
+
+* **Frontend**: SvelteKit + Tailwind CSS
+* **Backend**: Express.js
+* **Database**: SQLite with Drizzle ORM
+
+---
+
+## 🛠️ Features
+
+* 🅿️ List your space as a parking spot
+* 🔍 Search and book available spots
+* ⏱️ Avoid double bookings with time-based reservations
+* *(Planned)* Payments and map-based search
+
+---
+
+## 🚀 Stack
+
+* SvelteKit (frontend & routing)
+* Tailwind CSS (UI)
+* Express.js (backend API)
+* SQLite + Drizzle (DB + ORM)
+
+---
 ## Features
 
 - **Express.js**: A minimal and flexible Node.js web application framework.
